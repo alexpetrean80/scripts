@@ -7,5 +7,7 @@ chmod +x .create_dirs.sh .install_apps.sh .setup_emacs.sh .setup_fish.sh .setup_
 # scripts depend on at least one tool which is installed here and the programming
 # language setups depend on the active user shell
 ./.install_apps.sh
+./.setup_fish.sh
 
+# the other tasks run in parallel to be more efficient on time
 parallel ::: ./.setup_emacs.sh ./.setup_golang.sh ./.setup_rust.sh ./.create_dirs.sh

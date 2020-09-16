@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 programming_root="$HOME"/Programming
-dirs=("js" "go" "go/{bin,src,pkg}" "rust" "c" "c#" "java" "lisp" "python")
+dirs=("js" "go" "go" "rust" "c" "c#" "java" "lisp" "python")
 if [ ! -d "$programming_root" ]; then
     mkdir "$programming_root"
 fi
