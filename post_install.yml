@@ -1,0 +1,60 @@
+- name: Fedora post install playbook
+  hosts: localhost
+  become: true
+  vars:
+    repo_packages:
+      - util-linux-user
+      - neovim
+      - emacs
+      - zsh
+      - rclone
+      - rclone-browser
+      - clisp
+      - sbcl
+      - ripgrep
+      - git
+      - flatpak
+      - tlp
+      - powertop
+      - gnome-boxes
+      - lutris
+      - octave
+      - octave-statistics
+      - gnome-tweaks
+    utils:
+      # Zimfw
+      - https://raw.githubusercontent.com/zimfw/install/master/install.zsh
+      # fnm
+      - https://fnm.vercel.app/install
+  tasks:
+    - name: Install repo packages
+      dnf:
+        name: "{{ repo_packages }}"
+
+    - name: Enable flathub
+      flatpak_remote:
+        name: flathub
+        state: present
+        flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+
+    # TODO see when it becomes possible to install flatpaks in bulk
+    - name: Install Telegram from flatpak
+      flatpak:
+        name: org.telegram.desktop
+        state: present
+    - name: Install Whatsapp from flatpak
+      flatpak:
+        name: com.gigitux.gtkwhats
+        state: present
+    - name: Install Discord from flatpak
+      flatpak:
+        name: com.discordapp.Discord
+        state: present
+    - name: Install Steam from flatpak
+      flatpak:
+        name: com.valvesoftware.Steam
+        state: present
+    - name: Install Steam from flatpak
+      flatpak:
+        name: com.bitwarden.desktop
+        state: present
