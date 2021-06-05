@@ -12,10 +12,9 @@ sudo pacman -S rustup
 
 rustup toolchain install stable
 
-yay -S paru pamac
-paru -R yay
+yay -S pamac
 
-paru -S - <packages.txt
+yay -S - <packages.txt
 
 #change user shell to zsh
 chsh -s $(which zsh)
