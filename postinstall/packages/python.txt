@@ -1,0 +1,6 @@
+black
+pyflakes
+isort
+pipenv
+nose
+pytest

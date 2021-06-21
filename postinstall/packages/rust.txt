@@ -1,0 +1,5 @@
+bat
+bottom
+exa
+procs
+ripgrep
